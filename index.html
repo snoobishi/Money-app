@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Real Earn Coin</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="app">
+    <section class="auth-screen" id="authScreen">
+      <div class="auth-brand">
+        <span class="coin-logo">$</span>
+        <div>
+          <h1>Real Earn Coin</h1>
+          <p>Click coins, reach rewards, request your transfer.</p>
+        </div>
+      </div>
+
+      <div class="auth-card">
+        <div class="tabs" role="tablist" aria-label="Account forms">
+          <button class="tab active" id="showLogin" type="button">Login</button>
+          <button class="tab" id="showRegister" type="button">Register</button>
+        </div>
+
+        <form class="auth-form active" id="loginForm">
+          <label>
+            Username
+            <input id="loginUsername" type="text" autocomplete="username" required>
+          </label>
+          <label>
+            Password
+            <input id="loginPassword" type="password" autocomplete="current-password" required>
+          </label>
+          <button class="primary-button" type="submit">Login</button>
+        </form>
+
+        <form class="auth-form" id="registerForm">
+          <label>
+            Username
+            <input id="registerUsername" type="text" autocomplete="username" required>
+          </label>
+          <label>
+            Gmail
+            <input id="registerEmail" type="email" autocomplete="email" required>
+          </label>
+          <label>
+            Password
+            <input id="registerPassword" type="password" autocomplete="new-password" minlength="6" required>
+          </label>
+          <button class="primary-button" type="submit">Create account</button>
+        </form>
+
+        <p class="form-message" id="authMessage" role="status"></p>
+      </div>
+    </section>
+
+    <section class="game-screen hidden" id="gameScreen">
+      <header class="topbar">
+        <div>
+          <span class="eyebrow">Logged in as</span>
+          <h2 id="playerName">Player</h2>
+          <p id="managerBadge" class="manager-badge hidden">Manager account</p>
+        </div>
+        <button class="ghost-button" id="logoutButton" type="button">Logout</button>
+      </header>
+
+      <section class="stats-grid" aria-label="Player progress">
+        <article>
+          <span>Total Clicks</span>
+          <strong id="clickCount">0</strong>
+        </article>
+        <article>
+          <span>Current Reward</span>
+          <strong id="rewardAmount">$0</strong>
+        </article>
+        <article>
+          <span>Next Goal</span>
+          <strong id="nextGoal">150,000</strong>
+        </article>
+      </section>
+
+      <section class="coin-zone">
+        <button class="coin-button" id="coinButton" type="button" aria-label="Click coin">
+          <span>$</span>
+        </button>
+        <p id="coinMessage">Click the coin to build your reward.</p>
+      </section>
+
+      <section class="content-grid">
+        <article class="panel">
+          <div class="panel-heading">
+            <div>
+              <span class="eyebrow">Transfer</span>
+              <h3>Choose transfer method</h3>
+            </div>
+          </div>
+
+          <div class="wallet-options">
+            <label>
+              <input type="radio" name="walletType" value="Binance" checked>
+              <span>Binance Transfer</span>
+            </label>
+            <label>
+              <input type="radio" name="walletType" value="Google Pay">
+              <span>Google Pay Transfer</span>
+            </label>
+          </div>
+
+          <label class="wallet-field">
+            Wallet address
+            <input id="walletAddress" type="text" placeholder="Paste wallet address">
+          </label>
+
+          <button class="primary-button" id="claimButton" type="button">Request transfer</button>
+          <p class="claim-status" id="claimStatus" role="status">Reach 150,000 clicks to unlock the first transfer request.</p>
+        </article>
+
+        <article class="panel">
+          <div class="panel-heading">
+            <div>
+              <span class="eyebrow">Upgrades</span>
+              <h3>Power-ups</h3>
+            </div>
+          </div>
+          <div class="upgrades-list" id="upgradesList"></div>
+        </article>
+
+        <article class="panel">
+          <div class="panel-heading">
+            <div>
+              <span class="eyebrow">Rewards</span>
+              <h3>Milestones</h3>
+            </div>
+          </div>
+          <ul class="milestone-list" id="milestoneList">
+            <li data-goal="150000"><span>150,000 clicks</span><strong>$15</strong></li>
+            <li data-goal="200000"><span>200,000 clicks</span><strong>$20</strong></li>
+            <li data-goal="1000000"><span>1,000,000 clicks</span><strong>$100</strong></li>
+          </ul>
+        </article>
+
+        <article class="panel manager-panel hidden" id="managerPanel">
+          <div class="panel-heading">
+            <div>
+              <span class="eyebrow">Manager</span>
+              <h3>Players</h3>
+            </div>
+          </div>
+          <div class="manager-list" id="managerList"></div>
+        </article>
+      </section>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

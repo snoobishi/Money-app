@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: money-app
+    runtime: node
+    region: oregon
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: MANAGER_USERNAME
+        value: Elzakary-Gustinvil
+      - key: MANAGER_EMAIL
+        value: elzkaryg@gmail.com
